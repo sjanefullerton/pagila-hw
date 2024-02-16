@@ -3,3 +3,5 @@
  * HINT:
  * Use the count() aggregation function and the rating column of the film table.
  */
+
+select COUNT(*) as count from film where rating = 'G';
