@@ -5,7 +5,13 @@
 
 CREATE OR REPLACE FUNCTION list_category(TEXT) RETURNS TABLE(title TEXT) AS
 $$
--- FIXME: implementation goes here
+  SELECT film.title, COUNT(*) AS film_count
+  FROM category
+  JOIN film_category ON category.category_id = film_category.category_id
+  JOIN film ON film_category.film_id = film.film_id
+  WHERE category.name = category_name
+  GROUP BY film.title
+  ORDER BY film_count DESC;
 $$
 LANGUAGE SQL
 IMMUTABLE
