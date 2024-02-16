@@ -3,4 +3,6 @@
  * Order results alphabetically.
  */
 
-SELECT last_name FROM actor WHERE LOWER(last_name) LIKE '%li%' ORDER BY last_name;
+SELECT last_name FROM actor WHERE last_name ILIKE '%LI%' ORDER BY last_name;
+
+-- select last_name from actor where lower(last_name) like '%li' order by last_name;
