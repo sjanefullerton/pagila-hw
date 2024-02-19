@@ -3,10 +3,8 @@
  * where the profit is the total amount that customer have payer for the film.
  * Use tables payment, rental, inventory, and film. 
  */
-SELECT film.title, SUM(payment.amount) AS total_profit
-FROM film
-JOIN inventory ON film.film_id = inventory.film_id
-JOIN rental ON inventory.inventory_id = rental.inventory_id
-JOIN payment ON rental.rental_id = payment.rental_id
-GROUP BY film.title
-ORDER BY total_profit DESC;
+
+select film.title, sum(payment.amount) as profit from film join inventory using (film_id) join rental using (inventory_id) join payment using (rental_id) group by film.title order by profit desc; 
+
+
+

@@ -5,9 +5,12 @@
  * Use tables film and language, and order the results alphabetically by film title.
  */
 
-SELECT film.title
+--select film_id, title, language_id, name from film join language using (language_id) where (title ilike 'k%' or title ilike 'q%' and name = 'English' order by title;
+
+SELECT film_id, title, language_id, name
 FROM film
-JOIN language ON film.language_id = language.language_id
-WHERE film.title LIKE 'K%' OR film.title LIKE 'Q%'
-AND language.name = 'English'
-ORDER BY film.title;
+JOIN language USING (language_id)
+WHERE (title ILIKE 'k%' OR title ILIKE 'q%') AND name = 'English'
+ORDER BY title;
+
+-- select first_name, last_name, address as street_address from staff join address using (address_id) order by last_name;
