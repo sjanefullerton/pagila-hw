@@ -31,4 +31,4 @@ jobs:
         sleep 20
 
         # run the tests
-        docker exec pg ./check_answers.sh
+        docker exec pagila-hw_pg_1 ./run_tests.sh
